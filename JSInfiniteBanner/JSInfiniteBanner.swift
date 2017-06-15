@@ -35,7 +35,7 @@ public class JSInfiniteBanner: UIView {
         return collectionView
     }()
     
-    init(frame: CGRect, data: [String]) {
+    public init(frame: CGRect, data: [String]) {
         super.init(frame: frame)
         self.data = data
         uiSet()
