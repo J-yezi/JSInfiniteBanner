@@ -16,8 +16,8 @@ Pod::Spec.new do |s|
 #
 
 s.name         = "JSInfiniteBanner"
-s.version      = "0.0.1"
-s.summary      = "无限轮播"
+s.version      = "0.0.2"
+s.summary      = "循环播放图片"
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -80,7 +80,7 @@ s.platform     = :ios, "9.0"
 #  Supports git, hg, bzr, svn and HTTP.
 #
 
-s.source       = { :git => "https://github.com/J-yezi/JSInfiniteBanner.git", :tag => "0.0.1" }
+s.source       = { :git => "https://github.com/J-yezi/JSInfiniteBanner.git", :tag => "0.0.2" }
 
 
 # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
