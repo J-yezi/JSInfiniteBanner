@@ -9,7 +9,7 @@
 import UIKit
 import YYWebImage
 
-class JSInfiniteBannerCell: UICollectionViewCell {
+public class JSInfiniteBannerCell: UICollectionViewCell {
     
     var url: String? {
         didSet {

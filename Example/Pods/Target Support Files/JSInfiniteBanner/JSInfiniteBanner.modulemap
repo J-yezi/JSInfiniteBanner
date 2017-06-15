@@ -1,0 +1,6 @@
+framework module JSInfiniteBanner {
+  umbrella header "JSInfiniteBanner-umbrella.h"
+
+  export *
+  module * { export * }
+}

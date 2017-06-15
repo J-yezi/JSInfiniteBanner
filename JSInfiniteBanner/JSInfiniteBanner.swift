@@ -8,18 +8,18 @@
 
 import UIKit
 
-class JSInfiniteBanner: UIView {
+public class JSInfiniteBanner: UIView {
     
-    let identifier = "JSInfiniteBannerIdentifier"
-    var data: [String]!
-    var pages = [CGFloat]()
-    lazy var pageControl: UIPageControl = {
+    fileprivate let identifier = "JSInfiniteBannerIdentifier"
+    fileprivate var data: [String]!
+    fileprivate var pages = [CGFloat]()
+    fileprivate lazy var pageControl: UIPageControl = {
         let pageControl: UIPageControl = UIPageControl(frame: CGRect(x: 0, y: self.bounds.height - 35, width: self.bounds.width, height: 20))
         pageControl.pageIndicatorTintColor = UIColor.gray
         pageControl.currentPageIndicatorTintColor = UIColor.red
         return pageControl
     }()
-    lazy var collectionView: UICollectionView = {
+    fileprivate lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         layout.minimumLineSpacing = 0
@@ -34,7 +34,7 @@ class JSInfiniteBanner: UIView {
         collectionView.register(JSInfiniteBannerCell.self, forCellWithReuseIdentifier: self.identifier)
         return collectionView
     }()
-
+    
     init(frame: CGRect, data: [String]) {
         super.init(frame: frame)
         self.data = data
@@ -42,10 +42,10 @@ class JSInfiniteBanner: UIView {
         dataSet()
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
 }
 
 extension JSInfiniteBanner {
@@ -68,7 +68,7 @@ extension JSInfiniteBanner {
 
 extension JSInfiniteBanner: UICollectionViewDelegate, UICollectionViewDataSource {
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offset = scrollView.contentOffset.x .truncatingRemainder(dividingBy: bounds.width * CGFloat(data.count))
         if pages.count > 0, offset > pages.last! {
             pageControl.currentPage = 0
@@ -82,15 +82,15 @@ extension JSInfiniteBanner: UICollectionViewDelegate, UICollectionViewDataSource
         }
     }
     
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
+    public func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 201
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return data.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! JSInfiniteBannerCell
         cell.url = data[indexPath.row]
         cell.backgroundColor = UIColor.gray
